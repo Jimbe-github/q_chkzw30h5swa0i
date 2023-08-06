@@ -20,7 +20,7 @@ class MainViewModel : ViewModel() {
   val postList: LiveData<List<Post>>?
     get() =
       if (myAddressLiveData.value == null || fmodel == null) null //この辺はテキトウ
-      else Transformations.switchMap(myAddressLiveData) { address: String? -> fmodel!!.getPostListLiveData(address) }
+      else Transformations.switchMap(myAddressLiveData) { address: String? -> fmodel!!.getPostListLiveData(address!!) }
 
   companion object {
     private const val LOG_TAG = "MainViewModel"
